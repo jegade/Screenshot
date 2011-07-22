@@ -17,9 +17,8 @@ get '/api/screenshot' => sub {
 
     my $tmp = $phantom->screenshot($url);
 
-    if ($tmp) {
+    if (-e $tmp && -s $tmp > 0) {
 
-        warn $tmp;
         send_file( $tmp, system_path => 1 );
 
     } else {
