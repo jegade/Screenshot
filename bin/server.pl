@@ -1,3 +1,5 @@
+#!/usr/bin/env perl
+
 use Dancer;
 
 use File::Slurp;
