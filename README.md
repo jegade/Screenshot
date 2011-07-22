@@ -1,1 +1,1 @@
-Headless Screenshot Service with REST-Api build on Mojolicious, PhantomJS and Xvfb
+Headless Screenshot Service with Api build on Dancer, PhantomJS and Xvfb
