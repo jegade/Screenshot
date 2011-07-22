@@ -1,17 +1,17 @@
-Headless Screenshot Service with Api build on Dancer, PhantomJS and Xvfb
+# Headless Screenshot Service with Api build on Dancer, PhantomJS and Xvfb
 
-*Build*
+## Build
 
 1. Install Xvfb 
 2. Compile PhantomsJS for your system (qmake && make)
-3. install Perl-Modules  Dancer, Parallel::Jobs
+3. install Perl-Modules  Dancer, Parallel::Jobs 
 
 
-*Start*
+## Start
 
-1. /bin/server 
+1. ./bin/server.pl 
 
 
-*Use*
+## Use
 
 GET http://127.0.0.1:3000/api/screenshot?url=YOUR_URL
