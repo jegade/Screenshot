@@ -25,7 +25,7 @@ sub new {
     my $width    = 1024;
     my $height   = 768;
     my $color    = 24;
-    my $xvfb_pid = Parallel::Jobs::start_job( $xvfb, ":" . $display, "-screen", 0, $width . "x" . $height . "x" . $color );
+    my $xvfb_pid = Parallel::Jobs::start_job( $xvfb, ":" . $display, "-nolisten", "tcp", "-screen", 0, $width . "x" . $height . "x" . $color );
 
     return bless {};
 }
