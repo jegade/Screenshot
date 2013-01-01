@@ -1,11 +1,9 @@
-# Headless Screenshot Service with Api build on Dancer, PhantomJS and Xvfb
+# Headless Screenshot Service with Api build on Dancer, PhantomJS
 
 ## Build
 
-1. Install Xvfb 
-2. Compile PhantomsJS for your system (qmake && make)
-3. install Perl-Modules  Dancer, Parallel::Jobs 
-
+1. Compile PhantomsJS for your system (qmake && make) 
+2. install Perl-Modules Dancer
 
 ## Start
 
