@@ -2,6 +2,9 @@
 
 use Dancer;
 
+set server => '127.0.0.1';
+
+
 use File::Slurp;
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
