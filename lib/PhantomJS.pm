@@ -5,6 +5,8 @@ use strict;
 use warnings;
 use FindBin;
 use File::Temp qw/tempfile/;
+use IO::All;     
+use JSON;
 
 my $phantom = "$FindBin::Bin/phantomjs";
 my $script  = "$FindBin::Bin/../scripts/screenshot.js";
@@ -32,6 +34,15 @@ sub screenshot {
     my $format = 'png';
     my ( $fh, $tmp ) = tempfile( "screenshot_XXXXXXXX", TMPDIR => 1, SUFFIX => "." . $format );
     system $phantom, $script, $url, $tmp;
-    return $tmp;
+    
+    if ( -e $tmp) { 
+    
+        my $meta = decode_json(io($tmp.".json")->all); 
+        return $meta;
+
+    } else {
+
+        return;
+    }
 }
 

@@ -4,8 +4,6 @@ use Dancer;
 
 set server => '127.0.0.1';
 
-
-use File::Slurp;
 use FindBin qw($Bin);
 use lib "$Bin/../lib";
 
@@ -20,12 +18,21 @@ get '/api/screenshot' => sub {
     my $url  = param 'url';
     my $key  = param 'key';
 
-    my $tmp = $phantom->screenshot($url);
+    my $meta;
 
-    if (-e $tmp && -s $tmp > 0) {
+    eval { 
+    
+        $meta = $phantom->screenshot($url);
 
-        send_file( $tmp, system_path => 1 );
+    };
 
+    print STDERR $@ if $@;
+
+    if ($meta) {
+
+        header('Content-Type' => 'application/json; charset=utf8');
+        return to_json($meta,{utf8 => 1, pretty => 1});
+        
     } else {
 
         send_error( "Server error", 501 );
