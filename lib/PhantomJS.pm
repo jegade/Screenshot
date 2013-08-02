@@ -34,7 +34,10 @@ sub screenshot {
     my $format = 'png';
     my ( $fh, $tmp ) = tempfile( "screenshot_XXXXXXXX", TMPDIR => 1, SUFFIX => "." . $format );
     system $phantom, $script, $url, $tmp;
-    
+
+    my $mode = 0644;
+    chmod $mode, $tmp;
+
     if ( -e $tmp) { 
     
         my $meta = decode_json(io($tmp.".json")->all); 
