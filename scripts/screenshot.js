@@ -20,14 +20,14 @@ if (phantom.args.length < 2 || phantom.args.length > 3) {
             phantom.exit();
         
         } else {
-           
+          
             meta = page.evaluate( function() {
 
                var els = document.querySelectorAll('p');
                var tel = document.querySelector('title');
 
-                var content = "";
-                var i = 0;
+               var content = "";
+               var i = 0;
 
                while(i < els.length) {
 
