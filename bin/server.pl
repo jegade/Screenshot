@@ -8,6 +8,7 @@ use FindBin qw($Bin);
 use lib "$Bin/../lib";
 
 use PhantomJS;
+use Time::Out qw(timeout);
 
 my $phantom = PhantomJS->new;
 
@@ -22,7 +23,7 @@ get '/api/screenshot' => sub {
 
     eval { 
     
-        $meta = $phantom->screenshot($url);
+        timeout 30 => sub { $meta = $phantom->screenshot($url) };
 
     };
 
