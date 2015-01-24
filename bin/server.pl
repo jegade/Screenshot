@@ -21,8 +21,8 @@ get '/api/screenshot' => sub {
 
     my $meta;
 
-    eval { 
-    
+    eval {
+
         timeout 30 => sub { $meta = $phantom->screenshot($url) };
 
     };
@@ -33,12 +33,12 @@ get '/api/screenshot' => sub {
 
         header('Content-Type' => 'application/json; charset=utf8');
         return to_json($meta,{utf8 => 1, pretty => 1});
-        
+
     } else {
 
         send_error( "Server error", 501 );
     }
 };
 
-# Start the Mojolicious command system
+# Start the Dancer command system
 dance;
